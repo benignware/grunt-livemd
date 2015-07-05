@@ -4,6 +4,15 @@
 
 With grunt-livemd you can easily generate runtime browser samples from corresponding code-blocks contained in markdown-files.
 
+Supported languages:
+
+* HTML
+* CSS
+* Javascript
+* SCSS
+* Less
+* Haml
+
 In addition to being a simple wrapper for [livemd](), grunt-livemd also provides a precofigured html-renderer.
 When rendered to html, you could either specify a custom lodash-template or use the bundled default one which is preconfigured to resemble github presentation styles.
 
