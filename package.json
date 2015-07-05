@@ -1,0 +1,55 @@
+{
+  "name": "grunt-livemd",
+  "description": "Generate live-samples from markdown files",
+  "version": "0.0.1",
+  "homepage": "http://benignware.github.io/grunt-livemd",
+  "author": {
+    "name": "Benignware",
+    "email": "mail@benignware.com",
+    "url": "https://github.com/benignware"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/benignware/grunt-livemd.git"
+  },
+  "bugs": {
+    "url": "https://github.com/benignware/grunt-livemd/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/benignware/grunt-livemd/blob/master/LICENSE"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "dependencies": {
+    "cheerio": "^0.19.0",
+    "coffee-script": "^1.9.3",
+    "deepmerge": "^0.2.10",
+    "hamljs": "^0.6.2",
+    "less": "^2.5.1",
+    "livemd": "0.0.1",
+    "lodash": "^3.10.0",
+    "marked": "^0.3.3",
+    "node-sass": "^3.2.0",
+    "pygmentize-bundled": "^2.3.0",
+    "q": "^1.4.1"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "^0.9.2",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-nodeunit": "^0.3.3",
+    "grunt": "~0.4.5"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.5"
+  },
+  "keywords": [
+    "gruntplugin"
+  ]
+}

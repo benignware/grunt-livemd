@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title || pkg.name %></title>
+    <style>
+      body {
+        font-family: Georgia;
+        padding: 20px;
+      }
+      h1 {
+        font-size: 45px;
+      }
+      .live-example {
+        border: 1px solid gray;
+        padding: 10px;
+        margin-bottom: 20px;
+      }
+      .highlight {
+        border: 1px solid gray;
+        background: #efefef;
+        padding: 10px;
+        margin-bottom: 20px;
+      }
+      blockquote {
+        margin: 0;
+        padding: 0;
+      }
+      article {
+        max-width: 900px;
+      }
+    </style>
+  </head>
+  <body>
+    <blockquote><em><%= test %></em></blockquote>
+    <article><%= content %></article>
+  </body>
+</html>
