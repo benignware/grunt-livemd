@@ -7,7 +7,6 @@ With grunt-livemd you can easily generate runtime browser samples from correspon
 In addition to being a simple wrapper for [livemd](), grunt-livemd also provides a precofigured html-renderer.
 When rendered to html, you could either specify a custom lodash-template or use the bundled default one which is preconfigured to resemble github presentation styles.
 
-
 ## Getting Started
 This plugin requires Grunt `~0.4.5`
 
@@ -134,6 +133,14 @@ grunt.initConfig({
   },
 });
 ```
+
+## Demo
+
+* http://benignware.github.io/visualist/
+* http://benignware.github.io/jquery-findus/
+* http://benignware.github.io/jquery-placepicker/
+* http://benignware.github.io/jquery-vgrd/
+* http://benignware.github.io/jquery-checkview/
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
