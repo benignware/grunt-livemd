@@ -159,4 +159,5 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
-v0.0.1 - Initial release
+* v0.0.2 - Updated livemd, updated samples and tests, added demo site
+* v0.0.1 - Initial release
