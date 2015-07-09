@@ -87,6 +87,20 @@ module.exports = function(grunt) {
     // Unit tests.
     nodeunit: {
       tests: ['test/*_test.js']
+    },
+    
+    // Github Pages
+    'gh-pages': {
+      options: {
+        // Options for all targets go here.
+      },
+      site: {
+        options: {
+          base: 'site'
+        },
+        // These files will get pushed to the `gh-pages` branch (the default).
+        src: ['**/*']
+      }
     }
 
   });
@@ -98,6 +112,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
+  grunt.loadNpmTasks("grunt-gh-pages");
+
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
