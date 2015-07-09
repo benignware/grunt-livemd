@@ -14,8 +14,10 @@ Supported languages:
 * Less
 * Haml
 
-In addition to being a simple wrapper for [livemd](), grunt-livemd also provides a precofigured html-renderer.
-When rendered to html, you could either specify a custom lodash-template or use the bundled default one which is preconfigured to resemble github presentation styles.
+In addition to being a simple wrapper for [livemd](), grunt-livemd also provides a preconfigured html-renderer.
+When rendered to html, you could either specify a custom lodash-template or use the bundled default one which is designed to resemble github presentation.
+
+[Demo](http://benignware.github.io/grunt-livemd)
 
 ## Getting Started
 This plugin requires Grunt `~0.4.5`
@@ -144,7 +146,7 @@ grunt.initConfig({
 });
 ```
 
-## Demo
+## Projects
 
 * http://benignware.github.io/visualist/
 * http://benignware.github.io/jquery-findus/
