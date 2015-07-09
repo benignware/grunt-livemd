@@ -36,9 +36,15 @@ module.exports = function convertmd(string, options, callback) {
   var markedOptions = {
     highlight: function (code, lang, callback) {
       lang = lang === 'less' || lang === 'sass' ? 'css' : lang;
-      pygmentize({ lang: lang, format: 'html' }, code, function (err, result) {
-        callback(err, result);
-      });
+      lang = lang === 'shell' ? 'cli' : lang;
+      try {
+        pygmentize({ lang: lang, format: 'html' }, code, function (err, result) {
+          callback(null, result);
+        });
+      } catch (e) {
+        console.warn("E: ", e);
+      }
+      
     },
     renderer: renderer
   };
