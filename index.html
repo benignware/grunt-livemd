@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link type="text/css" rel="stylesheet" href="http://cdn.rawgit.com/sindresorhus/github-markdown-css/gh-pages/github-markdown.css">
+    <link type="text/css" rel="stylesheet" href="http://cdn.rawgit.com/richleland/pygments-css/master/github.css">
+    <title>grunt-livemd</title>
+    <meta charset="UTF-8"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <style>
+    
+      body {
+        font-family: Helvetica, Arial, sans-serif;
+      }
+          
+      .highlight-example:after {
+        color: #959595;
+        content: "Example";
+        font-size: 12px;
+        font-weight: 700;
+        left: 15px;
+        letter-spacing: 1px;
+        position: absolute;
+        text-transform: uppercase;
+        top: 15px;
+      }
+      
+      .highlight-example {
+        border-color: #e5e5e5 #eee #eee;
+        border-style: solid;
+        border-width: 1px 0;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05) inset;
+        margin: 0 -15px 15px;
+        padding: 45px 15px 15px;
+        position: relative;
+      }
+      
+      .highlight-example {
+        background-color: #fff;
+        border-color: #ddd;
+        border-radius: 4px 4px 0 0;
+        border-width: 1px;
+        box-shadow: none;
+        margin-left: 0;
+        margin-right: 0;
+      }
+      
+      .highlight-example + .highlight {
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-width: 1px;
+        margin: -16px 0 15px;
+        border-width: 1px;
+      }
+
+      .highlight {
+        background-color: #f7f7f9;
+        border: 1px solid #e1e1e8;
+        border-radius: 4px;
+        margin-bottom: 14px;
+        padding: 0;
+      }
+
+      .highlight pre {
+        background-color: transparent;
+        border: 0 none;
+        margin-bottom: 0;
+        margin-top: 0;
+        padding: 0;
+      }
+      
+      article.markdown-body {
+        max-width: 728px;
+        margin: 50px auto;
+      }
+      
+      body > footer {
+        border-top: 1px solid #eee;
+        color: #767676;
+        font-size: 12px;
+        line-height: 1.5;
+        margin-top: 40px;
+        padding-bottom: 40px;
+        padding-top: 40px;
+        position: relative;
+        max-width: 728px;
+        margin: 50px auto;
+      }
+      
+      body > footer > * {
+        float: left;
+        line-height: 16px;
+        font-size: 12px;
+      }
+      body > footer > *:last-child {
+        float: right;
+      }
+      
+      body > footer > nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      body > footer > nav ul li {
+        display: inline-block;
+      }
+      
+      body > footer > nav ul li + li {
+        margin-left: 10px;
+      }
+      
+      a {
+        color: #4078c0;
+        text-decoration: none;
+      }
+      
+      img[style*='fixed'] {
+        z-index: 10;
+      }
+      
+    </style>
+  </head>
+  <body>
+    
+    <a href="https://github.com/benignware/grunt-livemd">
+      <!-- github badge -->
+      <img style="position: fixed; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png">
+    </a>
+    
+    <article class="markdown-body"><h1 id="grunt-livemd">grunt-livemd</h1>
+<blockquote>
+<p>Generate live-samples from markdown files</p>
+</blockquote>
+<p>With grunt-livemd you can easily generate runtime browser samples from corresponding code-blocks contained in markdown-files.</p>
+<p>Supported languages:</p>
+<ul>
+<li>HTML</li>
+<li>CSS</li>
+<li>Javascript</li>
+<li>Coffeescript</li>
+<li>SCSS</li>
+<li>Less</li>
+<li>Haml</li>
+</ul>
+<p>In addition to being a simple wrapper for <a href="">livemd</a>, grunt-livemd also provides a preconfigured html-renderer.
+When rendered to html, you could either specify a custom lodash-template or use the bundled default one which is designed to resemble github presentation.</p>
+<h2 id="demo">Demo</h2>
+<h3 id="html-css-javascript">HTML, CSS, Javascript</h3>
+<div class="highlight-example">
+<h4 id="click-me">Click me</h4>
+</div>
+
+
+<div class="highlight"><pre><span class="nt">&lt;h4</span> <span class="na">id=</span><span class="s">&quot;click-me&quot;</span><span class="nt">&gt;</span>Click me<span class="nt">&lt;/h4&gt;</span>
+</pre></div>
+<style>
+div.highlight-example h4 {
+  color: #0086b3;
+}
+</style>
+
+
+<div class="highlight"><pre><span class="nt">h4</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#0086b3</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+<script>
+try { var el = document.querySelector('#click-me');
+el.onclick = function() {
+  this.style.color = '#008080'
+};} catch (e) {}
+</script>
+
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">el</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#click-me&#39;</span><span class="p">);</span>
+<span class="nx">el</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="s1">&#39;#008080&#39;</span>
+<span class="p">};</span>
+</pre></div>
+<h3 id="coffeescript">Coffeescript</h3>
+<div class="highlight-example">
+<h4 id="click-me-with-coffeescript">Click me with coffeescript</h4>
+</div>
+
+
+<div class="highlight"><pre><span class="nt">&lt;h4</span> <span class="na">id=</span><span class="s">&quot;click-me-with-coffeescript&quot;</span><span class="nt">&gt;</span>Click me with coffeescript<span class="nt">&lt;/h4&gt;</span>
+</pre></div>
+<script>
+try { (function() {
+  var el;
+
+  el = document.querySelector('#click-me-with-coffeescript');
+
+  el.onclick = function() {
+    return this.style.color = '#008080';
+  };
+
+}).call(this);
+} catch (e) {}
+</script>
+
+
+<div class="highlight"><pre><span class="nv">el = </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s">&#39;#click-me-with-coffeescript&#39;</span><span class="p">);</span>
+<span class="nv">el.onclick = </span><span class="nf">() -&gt;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nv">style.color = </span><span class="s">&#39;#008080&#39;</span>
+</pre></div>
+<h3 id="scss">SCSS</h3>
+<div class="highlight-example">
+<h4 id="scss">Styled with SCSS</h4>
+</div>
+
+
+<div class="highlight"><pre><span class="nt">&lt;h4</span> <span class="na">id=</span><span class="s">&quot;scss&quot;</span><span class="nt">&gt;</span>Styled with SCSS<span class="nt">&lt;/h4&gt;</span>
+</pre></div>
+<style>
+div.highlight-example h4#scss {
+  background: #0086b3;
+  display: inline-block;
+  padding: 15px;
+  position: relative;
+  margin-left: 15px;
+  color: #fff;
+}
+
+div.highlight-example h4#scss:before {
+  content: '';
+  position: absolute;
+  left: -15px;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  border-top: 7.5px solid transparent;
+  border-right: 15px solid #0086b3;
+  border-bottom: 7.5px solid transparent;
+}
+</style>
+
+
+<div class="highlight"><pre><span class="k">@import</span> <span class="s2">&quot;bubble.scss&quot;</span><span class="p">;</span>
+<span class="nt">h4</span><span class="nn">#scss</span> <span class="p">{</span>
+  <span class="k">@include</span><span class="nd"> bubble</span><span class="p">(</span><span class="mh">#0086b3</span><span class="o">,</span> <span class="mh">#fff</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+<h3 id="less">Less</h3>
+<div class="highlight-example">
+<h4 id="less">Styled with Less</h4>
+</div>
+
+
+<div class="highlight"><pre><span class="nt">&lt;h4</span> <span class="na">id=</span><span class="s">&quot;less&quot;</span><span class="nt">&gt;</span>Styled with Less<span class="nt">&lt;/h4&gt;</span>
+</pre></div>
+<style>
+div.highlight-example h4#less {
+  background: #0086b3;
+  display: inline-block;
+  padding: 15px;
+  position: relative;
+  margin-left: 15px;
+  color: #ffffff;
+}
+
+div.highlight-example h4#less:before {
+  content: '';
+  position: absolute;
+  left: -15px;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  border-top: 7.5px solid transparent;
+  border-right: 15px solid #0086b3;
+  border-bottom: 7.5px solid transparent;
+}
+</style>
+
+
+<div class="highlight"><pre><span class="k">@import</span> <span class="s2">&quot;bubble.less&quot;</span><span class="p">;</span>
+<span class="nt">h4</span><span class="nf">#less</span> <span class="p">{</span>
+  <span class="o">.</span><span class="n">bubble</span><span class="p">(</span><span class="m">#0086b3</span><span class="o">,</span> <span class="m">#fff</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+<h3 id="haml">Haml</h3>
+<div class="highlight-example">
+
+<h4 id="haml">Haml Example</h4>
+</div>
+
+
+<div class="highlight"><pre><span class="nt">%h4</span><span class="nf">#haml</span><span class="p">=</span> <span class="s2">&quot;Haml Example&quot;</span>
+</pre></div>
+<h2 id="getting-started">Getting Started</h2>
+<p>This plugin requires Grunt <code>~0.4.5</code></p>
+<p>If you haven&#39;t used <a href="http://gruntjs.com/">Grunt</a> before, be sure to check out the <a href="http://gruntjs.com/getting-started">Getting Started</a> guide, as it explains how to create a <a href="http://gruntjs.com/sample-gruntfile">Gruntfile</a> as well as install and use Grunt plugins. Once you&#39;re familiar with that process, you may install this plugin with this command:</p>
+npm install grunt-livemd --save-dev<p>Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:</p>
+<script>
+try { grunt.loadNpmTasks('grunt-livemd');} catch (e) {}
+</script>
+
+
+<div class="highlight"><pre><span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">&#39;grunt-livemd&#39;</span><span class="p">);</span>
+</pre></div>
+<h2 id="the-livemd-task">The &quot;livemd&quot; task</h2>
+<h3 id="overview">Overview</h3>
+<p>In your project&#39;s Gruntfile, add a section named <code>livemd</code> to the data object passed into <code>grunt.initConfig()</code>.</p>
+<script>
+try { grunt.initConfig({
+  livemd: {
+    options: {
+      // Task-specific options go here.
+    },
+    your_target: {
+      // Target-specific file lists and/or options go here.
+    },
+  },
+});} catch (e) {}
+</script>
+
+
+<div class="highlight"><pre><span class="nx">grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
+  <span class="nx">livemd</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+      <span class="c1">// Task-specific options go here.</span>
+    <span class="p">},</span>
+    <span class="nx">your_target</span><span class="o">:</span> <span class="p">{</span>
+      <span class="c1">// Target-specific file lists and/or options go here.</span>
+    <span class="p">},</span>
+  <span class="p">},</span>
+<span class="p">});</span>
+</pre></div>
+<h3 id="options">Options</h3>
+<h4 id="options-layout">options.layout</h4>
+<p>Type: <code>String</code>
+Default value: <code>&#39;github&#39;</code></p>
+<p>Path to a custom template or a string identifier specifying a bundled layout. Pass in an object containing a <code>template</code>- and <code>data</code>-property to use custom variables inside the template. By default the template has access to the package.json stored in a key <code>pkg</code>.</p>
+<h4 id="options-paths">options.paths</h4>
+<p>Type: <code>Array</code>
+Default value: <code>[]</code></p>
+<p>Provide an array of include paths to pass to scss and less modules. Path to source is included by default.</p>
+<h4 id="options-prefilter">options.prefilter</h4>
+<p>Type: <code>Function</code>
+Default value: <code>null</code></p>
+<p>Filter the input markdown by providing a function taking the original string as argument and returning the modified string.</p>
+<h4 id="options-title">options.title</h4>
+<p>Type: <code>String</code>
+Default value: <code>&#39;&#39;</code></p>
+<p>Specify the title of a rendered html page. Provide a function to set the title according to source file.</p>
+<h4 id="options-wrap">options.wrap</h4>
+<p>Type: <code>String</code>
+Default value: <code>&#39;&lt;div class=&quot;highlight-example&quot;&gt;&lt;/div&gt;&#39;</code></p>
+<p>Specify a wrapper for the generated live-samples.</p>
+<h3 id="usage-examples">Usage Examples</h3>
+<h4 id="default-options">Default Options</h4>
+<p>In this example, markdown as well as an html presentation containing live-samples is generated from a README.md-file.</p>
+<script>
+try { grunt.initConfig({
+  livemd: {
+    options: {},
+    files: {
+      'dest/default_options/README.md': ['src/README.md'],
+      'dest/default_options/README.html': ['src/README.md']
+    },
+  },
+});} catch (e) {}
+</script>
+
+
+<div class="highlight"><pre><span class="nx">grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
+  <span class="nx">livemd</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">options</span><span class="o">:</span> <span class="p">{},</span>
+    <span class="nx">files</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s1">&#39;dest/default_options/README.md&#39;</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;src/README.md&#39;</span><span class="p">],</span>
+      <span class="s1">&#39;dest/default_options/README.html&#39;</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;src/README.md&#39;</span><span class="p">]</span>
+    <span class="p">},</span>
+  <span class="p">},</span>
+<span class="p">});</span>
+</pre></div>
+<h4 id="custom-options">Custom Options</h4>
+<p>In this example, an html presentation containing live-samples is generated from a markdown-file with custom template and wrapper.</p>
+<script>
+try { grunt.initConfig({
+  livemd: {
+    options: {
+      wrap: '<div class="live-example"></div>',
+      layout: {
+        template: 'layout.html',
+        data: {
+          test: 'This example demonstrates how to use grunt-livemd with a custom template'
+        }
+      },
+      title: function(src) {
+        return "Title of " + src;
+      }
+    },
+    files: {
+      'dest/custom_options/README.html': ['src/README.md']
+    },
+  },
+});} catch (e) {}
+</script>
+
+
+<div class="highlight"><pre><span class="nx">grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
+  <span class="nx">livemd</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">wrap</span><span class="o">:</span> <span class="s1">&#39;&lt;div class=&quot;live-example&quot;&gt;&lt;/div&gt;&#39;</span><span class="p">,</span>
+      <span class="nx">layout</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;layout.html&#39;</span><span class="p">,</span>
+        <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+          <span class="nx">test</span><span class="o">:</span> <span class="s1">&#39;This example demonstrates how to use grunt-livemd with a custom template&#39;</span>
+        <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="nx">title</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">src</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="s2">&quot;Title of &quot;</span> <span class="o">+</span> <span class="nx">src</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nx">files</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s1">&#39;dest/custom_options/README.html&#39;</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;src/README.md&#39;</span><span class="p">]</span>
+    <span class="p">},</span>
+  <span class="p">},</span>
+<span class="p">});</span>
+</pre></div>
+<h4 id="advanced-options">Advanced Options</h4>
+<p>This example demonstrates how to strip off unwanted links by making use of a prefilter.</p>
+<script>
+try { grunt.initConfig({
+  livemd: {
+    options: {
+      options: {
+        prefilter: function(string) {
+          return string.replace(grunt.config().pkg && grunt.config().pkg.homepage && new RegExp("\\[.*\\]\\(" + grunt.config().pkg.homepage.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&") + "\\)", "gi"), "");
+        }
+      }
+    },
+    files: {
+      'dest/advanced_options/README.html': ['src/README.md']
+    },
+  },
+});} catch (e) {}
+</script>
+
+
+<div class="highlight"><pre><span class="nx">grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
+  <span class="nx">livemd</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">prefilter</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">return</span> <span class="nx">string</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">grunt</span><span class="p">.</span><span class="nx">config</span><span class="p">().</span><span class="nx">pkg</span> <span class="o">&amp;&amp;</span> <span class="nx">grunt</span><span class="p">.</span><span class="nx">config</span><span class="p">().</span><span class="nx">pkg</span><span class="p">.</span><span class="nx">homepage</span> <span class="o">&amp;&amp;</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="s2">&quot;\\[.*\\]\\(&quot;</span> <span class="o">+</span> <span class="nx">grunt</span><span class="p">.</span><span class="nx">config</span><span class="p">().</span><span class="nx">pkg</span><span class="p">.</span><span class="nx">homepage</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g</span><span class="p">,</span> <span class="s2">&quot;\\$&amp;&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;\\)&quot;</span><span class="p">,</span> <span class="s2">&quot;gi&quot;</span><span class="p">),</span> <span class="s2">&quot;&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nx">files</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s1">&#39;dest/advanced_options/README.html&#39;</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;src/README.md&#39;</span><span class="p">]</span>
+    <span class="p">},</span>
+  <span class="p">},</span>
+<span class="p">});</span>
+</pre></div>
+<h2 id="projects">Projects</h2>
+<ul>
+<li><a href="http://benignware.github.io/visualist/">http://benignware.github.io/visualist/</a></li>
+<li><a href="http://benignware.github.io/jquery-findus/">http://benignware.github.io/jquery-findus/</a></li>
+<li><a href="http://benignware.github.io/jquery-placepicker/">http://benignware.github.io/jquery-placepicker/</a></li>
+<li><a href="http://benignware.github.io/jquery-vgrd/">http://benignware.github.io/jquery-vgrd/</a></li>
+<li><a href="http://benignware.github.io/jquery-checkview/">http://benignware.github.io/jquery-checkview/</a></li>
+</ul>
+<h2 id="contributing">Contributing</h2>
+<p>In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using <a href="http://gruntjs.com/">Grunt</a>.</p>
+<h2 id="release-history">Release History</h2>
+<p>v0.0.1 - Initial release</p>
+</article>
+    <footer>
+      <div class="disclaimer">
+        
+           &copy; 2015
+          
+            <a href="https://github.com/benignware">
+          
+            Benignware
+          
+            </a>
+          
+        
+      </div>
+      <nav>
+        <ul>
+          
+            <li>v0.0.1</li>
+          
+          
+            <li><a href="https://github.com/benignware/grunt-livemd/archive/v0.0.1.zip">Download</a></li>
+          
+          
+            <li><a href="https://github.com/benignware/grunt-livemd/issues">Bugs</a></li>
+          
+        </ul>
+      </nav>
+      
+    </footer>
+  </body>
+</html>
