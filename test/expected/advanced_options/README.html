@@ -4,6 +4,8 @@
     <link type="text/css" rel="stylesheet" href="http://cdn.rawgit.com/sindresorhus/github-markdown-css/gh-pages/github-markdown.css">
     <link type="text/css" rel="stylesheet" href="http://cdn.rawgit.com/richleland/pygments-css/master/github.css">
     <title>grunt-livemd</title>
+    <meta charset="UTF-8"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <style>
     
       body {
@@ -114,118 +116,154 @@
         text-decoration: none;
       }
       
+      img[style*='fixed'] {
+        z-index: 10;
+      }
+      
     </style>
   </head>
   <body>
     
-    <a href="https://github.com/benignware/grunt-livemd"><img style="position: fixed; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
+    <a href="https://github.com/benignware/grunt-livemd">
+      <!-- github badge -->
+      <img style="position: fixed; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png">
+    </a>
     
     <article class="markdown-body"><h1 id="grunt-livemd">grunt-livemd</h1>
 <blockquote>
 <p>Generate live-samples from markdown files</p>
 </blockquote>
+<h3 id="html-css-javascript">HTML, CSS, Javascript</h3>
 <div class="highlight-example">
-<h4 id="click-me">Click to color me</h4>
+<h4 id="click-me">Click me</h4>
 </div>
 
 
-<div class="highlight"><pre><span class="nt">&lt;h4</span> <span class="na">id=</span><span class="s">&quot;click-me&quot;</span><span class="nt">&gt;</span>Click to color me<span class="nt">&lt;/h4&gt;</span>
+<div class="highlight"><pre><span class="nt">&lt;h4</span> <span class="na">id=</span><span class="s">&quot;click-me&quot;</span><span class="nt">&gt;</span>Click me<span class="nt">&lt;/h4&gt;</span>
 </pre></div>
-<style>h4 {
-  color: purple;
+<style>
+div.highlight-example h4 {
+  color: #0086b3;
 }
 </style>
 
 
-
 <div class="highlight"><pre><span class="nt">h4</span> <span class="p">{</span>
-  <span class="k">color</span><span class="o">:</span> <span class="nb">purple</span><span class="p">;</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#0086b3</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
-<script>var el = document.querySelector('#click-me');
+<script>
+try { var el = document.querySelector('#click-me');
 el.onclick = function() {
-  this.style.color = 'blue'
-};
+  this.style.color = '#008080'
+};} catch (e) {}
 </script>
-
 
 
 <div class="highlight"><pre><span class="kd">var</span> <span class="nx">el</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#click-me&#39;</span><span class="p">);</span>
 <span class="nx">el</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="s1">&#39;#008080&#39;</span>
 <span class="p">};</span>
 </pre></div>
 <h3 id="coffeescript">Coffeescript</h3>
 <div class="highlight-example">
-<h4 id="click-me-coffee">Click to color me with coffeescript</h4>
+<h4 id="click-me-with-coffeescript">Click me with coffeescript</h4>
 </div>
 
 
-<div class="highlight"><pre><span class="nt">&lt;h4</span> <span class="na">id=</span><span class="s">&quot;click-me-coffee&quot;</span><span class="nt">&gt;</span>Click to color me with coffeescript<span class="nt">&lt;/h4&gt;</span>
+<div class="highlight"><pre><span class="nt">&lt;h4</span> <span class="na">id=</span><span class="s">&quot;click-me-with-coffeescript&quot;</span><span class="nt">&gt;</span>Click me with coffeescript<span class="nt">&lt;/h4&gt;</span>
 </pre></div>
 <script>
-(function() {
+try { (function() {
   var el;
 
-  el = document.querySelector('#click-me-coffee');
+  el = document.querySelector('#click-me-with-coffeescript');
 
   el.onclick = function() {
-    return this.style.color = 'blue';
+    return this.style.color = '#008080';
   };
 
 }).call(this);
+} catch (e) {}
 </script>
 
 
-<div class="highlight"><pre><span class="nv">el = </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s">&#39;#click-me-coffee&#39;</span><span class="p">);</span>
+<div class="highlight"><pre><span class="nv">el = </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s">&#39;#click-me-with-coffeescript&#39;</span><span class="p">);</span>
 <span class="nv">el.onclick = </span><span class="nf">() -&gt;</span>
-  <span class="k">this</span><span class="p">.</span><span class="nv">style.color = </span><span class="s">&#39;blue&#39;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nv">style.color = </span><span class="s">&#39;#008080&#39;</span>
 </pre></div>
 <h3 id="scss">SCSS</h3>
 <div class="highlight-example">
-<h4 id="scss">Colored with SCSS</h4>
+<h4 id="scss">Styled with SCSS</h4>
 </div>
 
 
-<div class="highlight"><pre><span class="nt">&lt;h4</span> <span class="na">id=</span><span class="s">&quot;scss&quot;</span><span class="nt">&gt;</span>Colored with SCSS<span class="nt">&lt;/h4&gt;</span>
+<div class="highlight"><pre><span class="nt">&lt;h4</span> <span class="na">id=</span><span class="s">&quot;scss&quot;</span><span class="nt">&gt;</span>Styled with SCSS<span class="nt">&lt;/h4&gt;</span>
 </pre></div>
 <style>
-h4#scss {
-  background: blue; }
+div.highlight-example h4#scss {
+  background: #0086b3;
+  display: inline-block;
+  padding: 15px;
+  position: relative;
+  margin-left: 15px;
+  color: #fff;
+}
 
-h4#scss {
-  color: #f938ab; }
+div.highlight-example h4#scss:before {
+  content: '';
+  position: absolute;
+  left: -15px;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  border-top: 7.5px solid transparent;
+  border-right: 15px solid #0086b3;
+  border-bottom: 7.5px solid transparent;
+}
 </style>
 
 
-<div class="highlight"><pre><span class="k">@import</span> <span class="s2">&quot;import.scss&quot;</span><span class="p">;</span>
-<span class="nv">$color</span><span class="o">:</span> <span class="mh">#f938ab</span><span class="p">;</span>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s2">&quot;bubble.scss&quot;</span><span class="p">;</span>
 <span class="nt">h4</span><span class="nn">#scss</span> <span class="p">{</span>
-  <span class="na">color</span><span class="o">:</span> <span class="nv">$color</span><span class="p">;</span>
+  <span class="k">@include</span><span class="nd"> bubble</span><span class="p">(</span><span class="mh">#0086b3</span><span class="o">,</span> <span class="mh">#fff</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 <h3 id="less">Less</h3>
 <div class="highlight-example">
-<h4 id="less">Colored with Less</h4>
+<h4 id="less">Styled with Less</h4>
 </div>
 
 
-<div class="highlight"><pre><span class="nt">&lt;h4</span> <span class="na">id=</span><span class="s">&quot;less&quot;</span><span class="nt">&gt;</span>Colored with Less<span class="nt">&lt;/h4&gt;</span>
+<div class="highlight"><pre><span class="nt">&lt;h4</span> <span class="na">id=</span><span class="s">&quot;less&quot;</span><span class="nt">&gt;</span>Styled with Less<span class="nt">&lt;/h4&gt;</span>
 </pre></div>
 <style>
-h4#less {
-  background: blue;
+div.highlight-example h4#less {
+  background: #0086b3;
+  display: inline-block;
+  padding: 15px;
+  position: relative;
+  margin-left: 15px;
+  color: #ffffff;
 }
-h4#less {
-  color: #f938ab;
+
+div.highlight-example h4#less:before {
+  content: '';
+  position: absolute;
+  left: -15px;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  border-top: 7.5px solid transparent;
+  border-right: 15px solid #0086b3;
+  border-bottom: 7.5px solid transparent;
 }
 </style>
 
 
-<div class="highlight"><pre><span class="k">@import</span> <span class="s2">&quot;import.less&quot;</span><span class="p">;</span>
-<span class="k">@color</span><span class="o">:</span> <span class="nf">#f938ab</span><span class="p">;</span>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s2">&quot;bubble.less&quot;</span><span class="p">;</span>
 <span class="nt">h4</span><span class="nf">#less</span> <span class="p">{</span>
-  <span class="k">color</span><span class="o">:</span> <span class="o">@</span><span class="k">color</span><span class="p">;</span>
+  <span class="o">.</span><span class="n">bubble</span><span class="p">(</span><span class="m">#0086b3</span><span class="o">,</span> <span class="m">#fff</span><span class="p">)</span>
 <span class="p">}</span>
 </pre></div>
 <h3 id="haml">Haml</h3>
