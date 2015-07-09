@@ -31,6 +31,10 @@ node_modules
 
 # GFM Preview
 .README.md.html
+**/.README.md.html
 
 # Mac OS
 .DS_Store
+
+# Temp
+tmp
