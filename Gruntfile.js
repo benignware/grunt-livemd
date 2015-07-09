@@ -65,6 +65,22 @@ module.exports = function(grunt) {
         files: {
           'tmp/advanced_options/README.html': ['test/fixtures/README.md']
         }
+      },
+      site: {
+        options: {
+          paths: ['test/fixtures/'],
+          prefilter: function(string) {
+            var demo = grunt.file.read('test/fixtures/README.md');
+            demo = demo.replace(/#\s*grunt-livemd\n\s*>.*\n/gi, "## Demo");
+            demo = demo.replace(/>\s*grunt-livemd/gi, "## Demo");
+            string = string.replace(grunt.config().pkg && grunt.config().pkg.homepage && new RegExp("\\[.*\\]\\(" + grunt.config().pkg.homepage.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&") + "\\)", "i"), demo);
+            string = string.replace(grunt.config().pkg && grunt.config().pkg.homepage && new RegExp("\\[.*\\]\\(" + grunt.config().pkg.homepage.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&") + "\\)", "gi"), "");
+            return string;
+          }
+        },
+        files: {
+          'site/index.html': ['README.md']
+        }
       }
     },
 
@@ -89,5 +105,7 @@ module.exports = function(grunt) {
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);
+  
+  grunt.registerTask('site', ['livemd:site']);
 
 };
