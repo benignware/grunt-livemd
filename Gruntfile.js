@@ -32,14 +32,24 @@ module.exports = function(grunt) {
     // Configuration to be run (and then tested).
     livemd: {
       default_options: {
+        // Override pkg version for tests
         options: {
+          layout: {
+            data: {
+              pkg: {
+                version: '0.0.0'
+              }
+            }
+          }
         },
+        // Setup test files
         files: {
           'tmp/default_options/README.md': ['test/fixtures/README.md'],
           'tmp/default_options/README.html': ['test/fixtures/README.md']
         }
       },
       custom_options: {
+        // Use a custom layout
         options: {
           wrap: '<div class="live-example"></div>',
           layout: {
@@ -57,11 +67,21 @@ module.exports = function(grunt) {
         }
       },
       advanced_options: {
+        // Use a prefilter
         options: {
           prefilter: function(string) {
             return string.replace(grunt.config().pkg && grunt.config().pkg.homepage && new RegExp("\\[.*\\]\\(" + grunt.config().pkg.homepage.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&") + "\\)", "gi"), "");
+          },
+          // Override pkg version for tests
+          layout: {
+            data: {
+              pkg: {
+                version: '0.0.0'
+              }
+            }
           }
         },
+        // Setup test files
         files: {
           'tmp/advanced_options/README.html': ['test/fixtures/README.md']
         }
