@@ -146,7 +146,7 @@ grunt.initConfig({
 });
 ```
 
-## Projects
+## Demo Projects
 
 * http://benignware.github.io/visualist/
 * http://benignware.github.io/jquery-findus/
@@ -159,5 +159,6 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
-* v0.0.2 - Updated livemd, updated samples and tests, added demo site
+* v0.0.3 - Updated `livemd` to v0.0.4
+* v0.0.2 - Updated `livemd` to v0.0.3, updated samples and tests, added demo site
 * v0.0.1 - Initial release
