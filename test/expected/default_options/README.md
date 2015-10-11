@@ -150,7 +150,7 @@ div.highlight-example h4#less {
   padding: 15px;
   position: relative;
   margin-left: 15px;
-  color: #ffffff;
+  color: #fff;
 }
 
 div.highlight-example h4#less:before {
