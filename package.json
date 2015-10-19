@@ -1,7 +1,7 @@
 {
   "name": "grunt-livemd",
   "description": "Generate live-samples from markdown files",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "homepage": "http://benignware.github.io/grunt-livemd",
   "author": {
     "name": "Benignware",

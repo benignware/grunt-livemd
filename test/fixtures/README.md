@@ -3,12 +3,26 @@
 
 [Demo](http://benignware.github.io/grunt-livemd)
 
-### HTML, CSS, Javascript
+### HTML
 
 ```html
 <h4 id="click-me">Click me</h4>
-<!--@example-->
+<style>
+  h4.btn {
+    border: 1px solid currentColor;
+    border-radius: 3px;
+    padding: 0 4px;
+    cursor: pointer;
+    display: inline-block;
+  }
+</style>
+<script>
+  var el = document.querySelector('#click-me');
+  el.className = 'btn';
+</script>
 ```
+
+### CSS
 
 ```css
 h4 {
@@ -16,12 +30,15 @@ h4 {
 }
 ```
 
+### Javascript
+
 ```js
 var el = document.querySelector('#click-me');
 el.onclick = function() {
   this.style.color = '#008080'
 };
 ```
+
 
 ### Coffeescript
 

@@ -133,14 +133,41 @@
 <blockquote>
 <p>Generate live-samples from markdown files</p>
 </blockquote>
-<h3 id="html-css-javascript">HTML, CSS, Javascript</h3>
+<h3 id="html">HTML</h3>
 <div class="highlight-example">
 <h4 id="click-me">Click me</h4>
+<style>
+  h4.btn {
+    border: 1px solid currentColor;
+    border-radius: 3px;
+    padding: 0 4px;
+    cursor: pointer;
+    display: inline-block;
+  }
+</style>
+<script>
+  var el = document.querySelector('#click-me');
+  el.className = 'btn';
+</script>
 </div>
 
 
 <div class="highlight"><pre><span class="nt">&lt;h4</span> <span class="na">id=</span><span class="s">&quot;click-me&quot;</span><span class="nt">&gt;</span>Click me<span class="nt">&lt;/h4&gt;</span>
+<span class="nt">&lt;style&gt;</span>
+  <span class="nt">h4</span><span class="nc">.btn</span> <span class="p">{</span>
+    <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="n">currentColor</span><span class="p">;</span>
+    <span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
+    <span class="k">padding</span><span class="o">:</span> <span class="m">0</span> <span class="m">4px</span><span class="p">;</span>
+    <span class="k">cursor</span><span class="o">:</span> <span class="k">pointer</span><span class="p">;</span>
+    <span class="k">display</span><span class="o">:</span> <span class="k">inline</span><span class="o">-</span><span class="k">block</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="nt">&lt;/style&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+  <span class="kd">var</span> <span class="nx">el</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#click-me&#39;</span><span class="p">);</span>
+  <span class="nx">el</span><span class="p">.</span><span class="nx">className</span> <span class="o">=</span> <span class="s1">&#39;btn&#39;</span><span class="p">;</span>
+<span class="nt">&lt;/script&gt;</span>
 </pre></div>
+<h3 id="css">CSS</h3>
 <style>
 div.highlight-example h4 {
   color: #0086b3;
@@ -152,6 +179,7 @@ div.highlight-example h4 {
   <span class="k">color</span><span class="o">:</span> <span class="m">#0086b3</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
+<h3 id="javascript">Javascript</h3>
 <script>
 try { var el = document.querySelector('#click-me');
 el.onclick = function() {

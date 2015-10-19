@@ -39,7 +39,7 @@ exports.livemd = {
     test.equal(actualHTML, expectedHTML, 'should generate html with runtime samples.');
 
     test.done();
-  },
+  }/*,
   custom_options: function(test) {
     test.expect(1);
 
@@ -57,5 +57,5 @@ exports.livemd = {
     test.equal(actualHTML, expectedHTML, 'should generate html with runtime samples.');
 
     test.done();
-  }
+  }*/
 };

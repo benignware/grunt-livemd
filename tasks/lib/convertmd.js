@@ -34,6 +34,17 @@ module.exports = function convertmd(string, options, callback) {
     return code;
   };
   
+  // Fix entities contained in inline scripts or styles
+  renderer.html = function(html) {
+    var
+      trimmed = html.trim(),
+      uppercase = html.toUpperCase();
+    if (uppercase.indexOf('<STYLE') === 0 || uppercase.indexOf('<SCRIPT')) {
+      return entities.decode(html);
+    }
+    return html;
+  };
+  
   // Fix marked is also parsing links in html comments
   var renderLink = renderer.link;
   renderer.link = function (href, title, text) {
