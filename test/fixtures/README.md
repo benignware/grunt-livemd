@@ -7,6 +7,7 @@
 
 ```html
 <h4 id="click-me">Click me</h4>
+<!--@example-->
 ```
 
 ```css

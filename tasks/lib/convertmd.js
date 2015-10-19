@@ -5,6 +5,7 @@ var
   marked = require("marked"),
   _ = require("lodash"),
   pygmentize = require('pygmentize-bundled'),
+  entities = new require('html-entities').XmlEntities,
   Q = require("q");
   
 module.exports = function convertmd(string, options, callback) {
@@ -31,6 +32,16 @@ module.exports = function convertmd(string, options, callback) {
   var renderer = new marked.Renderer();
   renderer.code = function (code, lang) {
     return code;
+  };
+  
+  // Fix marked is also parsing links in html comments
+  var renderLink = renderer.link;
+  renderer.link = function (href, title, text) {
+    var text = entities.decode(text);
+    if (text.indexOf('!--') === 0) {
+      return "<" + text + ">";
+    }
+    return renderLink.call(this, href, title, text);
   };
   
   var markedOptions = {
